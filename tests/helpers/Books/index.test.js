@@ -3,7 +3,7 @@
  */
 
 const {
-  getBooksWithoutRating, getRatingFromBookId, getBooksWithRating, getBooksGroupByAuthor,
+  getBooksWithoutRating, getRatingFromBookId, getBooksWithRating, getBooksGroupByAuthor, enterBooksToDB,
 } = require('../../../src/helpers/Books');
 
 
@@ -31,5 +31,12 @@ describe('getBooksGroupByAuthor', () => {
     const authors = Object.keys(booksWithRatingsByAuthor);
     expect((authors.length > 0)).toEqual(true);
     expect(Array.isArray(booksWithRatingsByAuthor[authors[0]])).toEqual(true);
+  });
+});
+describe(' enterBooksToDB', () => {
+  it('should enter All books with rating into the DataBase', async () => {
+    const DBentry = await enterBooksToDB();
+    expect((DBentry.length > 0)).toEqual(true);
+    expect(typeof (DBentry[0])).toEqual('string');
   });
 });

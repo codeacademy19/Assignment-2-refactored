@@ -2,7 +2,7 @@
  * @jest-environment node
  */
 
-const { getBooksWithoutRating, getRatingFromBookId } = require('../../../src/helpers/Books');
+const { getBooksWithoutRating, getRatingFromBookId, getBooksWithRating } = require('../../../src/helpers/Books');
 
 
 describe('getBooksWithoutRating', () => {
@@ -15,5 +15,11 @@ describe('getRatingFromBookId', () => {
   it('should fetch rating of a book with a given id', async () => {
     const rating = await getRatingFromBookId(10);
     expect(typeof (rating.rating)).toEqual('number');
+  });
+});
+describe('getBooksWithRating', () => {
+  it('should fetch books with their rating', async () => {
+    const booksWithRatings = await getBooksWithRating();
+    expect(booksWithRatings[0].rating).not.toEqual(null);
   });
 });

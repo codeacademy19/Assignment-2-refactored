@@ -11,6 +11,7 @@ module.exports = [{
     return res;
   }
   // });
+  // likeColumnEntry
   // console.log(result);
   // return h.response(result).code(200);
   ,

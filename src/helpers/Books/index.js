@@ -1,6 +1,6 @@
 const axios = require('axios');
 const { Axios } = require('../axiosGet');
-const booksDB = require('./BooksDB');
+const { BookDetails, BookLike } = require('./BooksDB');
 
 
 const getBooksWithoutRating = () => {
@@ -27,12 +27,13 @@ const getBooksGroupByAuthor = () => getBooksWithRating()
     return result;
   }, {}));
 const enterBooksToDB = () => getBooksWithRating()
-  .then(booksArray => booksDB(booksArray));
-
+  .then(booksArray => BookDetails(booksArray));
+const likeColumnEntry = (id, Like) => BookLike(id, Like);
 module.exports = {
   getBooksWithoutRating,
   getRatingFromBookId,
   getBooksWithRating,
   getBooksGroupByAuthor,
   enterBooksToDB,
+  likeColumnEntry,
 };

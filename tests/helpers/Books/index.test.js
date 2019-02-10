@@ -3,7 +3,8 @@
  */
 
 const {
-  getBooksWithoutRating, getRatingFromBookId, getBooksWithRating, getBooksGroupByAuthor, enterBooksToDB,
+  getBooksWithoutRating, getRatingFromBookId,
+  getBooksWithRating, getBooksGroupByAuthor, enterBooksToDB,
 } = require('../../../src/helpers/Books');
 
 
